@@ -7,10 +7,13 @@ import gamefunction.cards.MoveCard;
 import gamefunction.enums.CardType;
 import gamefunction.enums.ColorGroup;
 import gamefunction.enums.MoveType;
-import gamefunction.squares.*;
 import gamefunction.squares.buyablesquare.RailRoadSquare;
 import gamefunction.squares.buyablesquare.StreetSquare;
 import gamefunction.squares.buyablesquare.UtilitySquare;
+import gamefunction.squares.unbuyablesquare.CardSquare;
+import gamefunction.squares.unbuyablesquare.FreeParkingSquare;
+import gamefunction.squares.unbuyablesquare.GoToJailSquare;
+import gamefunction.squares.unbuyablesquare.JailSquare;
 
 
 public class GameBoardDefault extends GameBoard {

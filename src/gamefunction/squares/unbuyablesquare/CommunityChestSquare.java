@@ -1,4 +1,4 @@
-package gamefunction.squares;
+package gamefunction.squares.unbuyablesquare;
 
 import gamefunction.Square;
 
