@@ -9,11 +9,6 @@ import gamefunction.squares.BuyAbleSquare;
 public class UtilitySquare extends BuyAbleSquare {
 
     //INSTANCE VARIABLES
-    private final ColorGroup colorGroup = ColorGroup.RAILROAD;
-    private int price = 150;
-    private int baseRent;
-    private int rent;
-    private Player owner;
 
     //CONSTRUCTOR
     public UtilitySquare(){
@@ -44,34 +39,14 @@ public class UtilitySquare extends BuyAbleSquare {
 
 
     public void updateRentPrice(int diceValue){
-        if (owner.getUtilityCount() == 1){
-            rent = diceValue * 4;
-        } else if (owner.getUtilityCount() == 2){
-            rent = diceValue * 10;
+        if (getOwner().getUtilityCount() == 1){
+            setRent(diceValue * 4);
+        } else if (getOwner().getUtilityCount() == 2){
+            setRent( diceValue * 10);
         }
     }
 
 
 
     //SETTER AND GETTERS
-
-    public ColorGroup getColorGroup() {
-        return colorGroup;
-    }
-
-    public int getBaseRent() {
-        return baseRent;
-    }
-
-    public void setBaseRent(int baseRent) {
-        this.baseRent = baseRent;
-    }
-
-    public Player getOwner() {
-        return owner;
-    }
-
-    public void setOwner(Player owner) {
-        this.owner = owner;
-    }
 }

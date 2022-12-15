@@ -83,7 +83,7 @@ public class Player {
         this.jailCard = jailCard;
     }
 
-    public int getRailCount() {
+    public int getRailRoadCount() {
         return railRoadCount;
     }
 

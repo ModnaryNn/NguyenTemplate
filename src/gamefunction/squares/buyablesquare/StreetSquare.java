@@ -6,19 +6,21 @@ import gamefunction.squares.BuyAbleSquare;
 
 public class StreetSquare extends BuyAbleSquare {
 
-    private ColorGroup colorGroup;
+
     private int housePrice;
     private int houseCount;
-    private int baseRent;
-    private int rent;
+    private int value;
+    private boolean colorGroupActive;
 
     //CONSTRUCTOR
     public StreetSquare(){
         super();
+        colorGroupActive = false;
     }
 
     public StreetSquare(String name, int x, int y) {
         super(name, x, y);
+        colorGroupActive = false;
     }
 
     //METHODS
@@ -39,30 +41,23 @@ public class StreetSquare extends BuyAbleSquare {
     }
 
     public void updateValue(){
-        if (houseCount == 0){
+        if (getHouseCount() == 0){
             setValue(getPrice());
         } else {
-            setValue(getPrice() + houseCount * housePrice);
+            setValue(getPrice() + getHouseCount() * getHousePrice());
         }
     }
 
     public void updateRent(){
         if (houseCount == 0){
-            rent = baseRent;
+            setRent(getBaseRent());
         } else {
-            rent = getValue() / 2;
+            setRent(getValue() / 2) ;
         }
     }
 
 
     //GETTERS AND SETTERS
-    public ColorGroup getColorGroup() {
-        return colorGroup;
-    }
-
-    public void setColorGroup(ColorGroup colorGroup) {
-        this.colorGroup = colorGroup;
-    }
 
     public int getHousePrice() {
         return housePrice;
@@ -80,19 +75,19 @@ public class StreetSquare extends BuyAbleSquare {
         this.houseCount = houseCount;
     }
 
-    public int getBaseRent() {
-        return baseRent;
+    public int getValue() {
+        return value;
     }
 
-    public void setBaseRent(int baseRent) {
-        this.baseRent = baseRent;
+    public void setValue(int value) {
+        this.value = value;
     }
 
-    public int getRent() {
-        return rent;
+    public boolean isColorGroupActive() {
+        return colorGroupActive;
     }
 
-    public void setRent(int rent) {
-        this.rent = rent;
+    public void setColorGroupActive(boolean colorGroupActive) {
+        this.colorGroupActive = colorGroupActive;
     }
 }

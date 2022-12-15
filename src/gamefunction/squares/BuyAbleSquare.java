@@ -3,29 +3,35 @@ package gamefunction.squares;
 import gamefunction.GameHandler;
 import gamefunction.Player;
 import gamefunction.Square;
+import gamefunction.enums.ColorGroup;
 
 public abstract class BuyAbleSquare extends Square {
-    private Player owner;
+
+    private ColorGroup colorGroup;
     private int price;
-    private int value;
+
+    private int baseRent;
+    private int rent;
+    private Player owner;
+
 
     //CONSTRUCTOR
-    public BuyAbleSquare(){
+    public BuyAbleSquare() {
         setAvailable(true);
     }
 
-    public BuyAbleSquare(String name , int x, int y) {
-        super(name,true,x,y);
+    public BuyAbleSquare(String name, int x, int y) {
+        super(name, true, x, y);
     }
 
     //METHODS
 
-    public Player getOwner() {
-        return owner;
+    public ColorGroup getColorGroup() {
+        return colorGroup;
     }
 
-    public void setOwner(Player owner) {
-        this.owner = owner;
+    public void setColorGroup(ColorGroup colorGroup) {
+        this.colorGroup = colorGroup;
     }
 
     public int getPrice() {
@@ -36,11 +42,29 @@ public abstract class BuyAbleSquare extends Square {
         this.price = price;
     }
 
-    public int getValue() {
-        return value;
+    public int getBaseRent() {
+        return baseRent;
     }
 
-    public void setValue(int value) {
-        this.value = value;
+    public void setBaseRent(int baseRent) {
+        this.baseRent = baseRent;
     }
+
+    public int getRent() {
+        return rent;
+    }
+
+    public void setRent(int rent) {
+        this.rent = rent;
+    }
+
+    public Player getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Player owner) {
+        this.owner = owner;
+    }
+
+
 }
