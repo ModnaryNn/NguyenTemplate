@@ -4,8 +4,9 @@ import gamefunction.GameHandler;
 import gamefunction.Player;
 import gamefunction.Square;
 import gamefunction.enums.ColorGroup;
+import gamefunction.squares.BuyAbleSquare;
 
-public class UtilitySquare extends Square {
+public class UtilitySquare extends BuyAbleSquare {
 
     //INSTANCE VARIABLES
     private final ColorGroup colorGroup = ColorGroup.RAILROAD;
@@ -19,8 +20,8 @@ public class UtilitySquare extends Square {
         super();
     }
 
-    public UtilitySquare(String name, boolean available, int x, int y) {
-        super(name, available, x, y);
+    public UtilitySquare(String name, int x, int y) {
+        super(name, x, y);
     }
 
     //METHODS

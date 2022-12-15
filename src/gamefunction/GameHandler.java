@@ -64,7 +64,7 @@ public class GameHandler {
         return square.isAvailable();
     }
 
-    public boolean checkOwnerShip(Player player, Square square) {
+    public boolean checkOwnerShip(Player player, BuyAbleSquare square) {
         if(square.getOwner() == player){
         return true;
         }

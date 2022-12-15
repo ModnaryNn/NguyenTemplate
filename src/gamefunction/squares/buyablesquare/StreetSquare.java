@@ -17,8 +17,8 @@ public class StreetSquare extends BuyAbleSquare {
         super();
     }
 
-    public StreetSquare(String name, boolean available, int x, int y) {
-        super(name, available, x, y);
+    public StreetSquare(String name, int x, int y) {
+        super(name, x, y);
     }
 
     //METHODS

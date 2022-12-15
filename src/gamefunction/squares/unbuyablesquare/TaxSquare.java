@@ -2,8 +2,9 @@ package gamefunction.squares.unbuyablesquare;
 
 import gamefunction.GameHandler;
 import gamefunction.Square;
+import gamefunction.squares.UnbuyableSquare;
 
-public class TaxSquare extends Square {
+public class TaxSquare extends UnbuyableSquare {
 
 
     //INSTANCE VARIABLE
@@ -14,8 +15,8 @@ public class TaxSquare extends Square {
         super();
     }
 
-    public TaxSquare(String name,boolean available, int x, int y, int taxAmount) {
-        super(name,available,x,y);
+    public TaxSquare(String name, int x, int y, int taxAmount) {
+        super(name,x,y);
         this.taxAmount = taxAmount;
     }
 

@@ -1,8 +1,9 @@
 package gamefunction.squares.unbuyablesquare;
 
 import gamefunction.Square;
+import gamefunction.squares.UnbuyableSquare;
 
-public class FreeParkingSquare extends Square {
+public class FreeParkingSquare extends UnbuyableSquare {
 
     //CONSTRUCTOR
 
@@ -10,8 +11,8 @@ public class FreeParkingSquare extends Square {
         super();
     }
 
-    public FreeParkingSquare(String name, boolean available, int x, int y) {
-        super(name, available, x, y);
+    public FreeParkingSquare(String name, int x, int y) {
+        super(name, x, y);
     }
 
     //METHODS

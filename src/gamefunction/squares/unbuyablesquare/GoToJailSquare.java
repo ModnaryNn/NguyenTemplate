@@ -3,8 +3,9 @@ package gamefunction.squares.unbuyablesquare;
 import gamefunction.GameHandler;
 import gamefunction.Square;
 import gamefunction.enums.MoveType;
+import gamefunction.squares.UnbuyableSquare;
 
-public class GoToJailSquare extends Square {
+public class GoToJailSquare extends UnbuyableSquare {
 
     //CONSTRUCTOR
 
@@ -12,8 +13,8 @@ public class GoToJailSquare extends Square {
         super();
     }
 
-    public GoToJailSquare(String name,boolean available, int x, int y) {
-        super(name,available,x,y);
+    public GoToJailSquare(String name, int x, int y) {
+        super(name,x,y);
     }
 
     //METHODS

@@ -20,8 +20,8 @@ public class RailRoadSquare extends BuyAbleSquare {
         super();
     }
 
-    public RailRoadSquare(String name, boolean available, int x, int y) {
-        super(name, available, x, y);
+    public RailRoadSquare(String name, int x, int y) {
+        super(name, x, y);
     }
 
     //METHODS

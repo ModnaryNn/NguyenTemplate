@@ -4,8 +4,9 @@ import gamefunction.GameHandler;
 import gamefunction.Player;
 import gamefunction.Square;
 import gamefunction.enums.CardType;
+import gamefunction.squares.UnbuyableSquare;
 
-public class CardSquare extends Square {
+public class CardSquare extends UnbuyableSquare {
     private CardType type;
 
     //CONSTRUCTOR
@@ -15,12 +16,14 @@ public class CardSquare extends Square {
     }
 
     public CardSquare(CardType type, String name) {
+        super();
         this.setName(name);
         this.type = type;
     }
 
-    public CardSquare(String name, boolean available, int x, int y) {
-        super(name, available, x, y);
+    public CardSquare(String name, int x, int y,CardType type) {
+        super(name,x,y);
+        this.type = type;
     }
 
     //METHODS
