@@ -5,22 +5,22 @@ import gamefunction.Player;
 import gamefunction.Square;
 import gamefunction.enums.ColorGroup;
 
-public abstract class BuyAbleSquare extends Square {
-
+public abstract class BuyableSquare extends Square {
     private ColorGroup colorGroup;
     private int price;
-
     private int baseRent;
     private int rent;
     private Player owner;
+    private int value;
+
 
 
     //CONSTRUCTOR
-    public BuyAbleSquare() {
+    public BuyableSquare() {
         setAvailable(true);
     }
 
-    public BuyAbleSquare(String name, int x, int y) {
+    public BuyableSquare(String name, int x, int y) {
         super(name, true, x, y);
     }
 
@@ -66,5 +66,16 @@ public abstract class BuyAbleSquare extends Square {
         this.owner = owner;
     }
 
+    public int getValue() {
+        return value;
+    }
 
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    public abstract void buy(GameHandler gameHandler);
+
+
+    public abstract void sell(GameHandler gameHandler);
 }

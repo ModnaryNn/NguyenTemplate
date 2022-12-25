@@ -51,6 +51,10 @@ public class Player {
         this.money = money;
     }
 
+    public void addMoney(int money){
+        this.money += money;
+    }
+
     public int getPosition() {
         return position;
     }
@@ -87,7 +91,7 @@ public class Player {
         return railRoadCount;
     }
 
-    public void setRailCount(int railCount) {
+    public void setRailRoadCount(int railCount) {
         this.railRoadCount = railCount;
     }
 

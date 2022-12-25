@@ -3,7 +3,7 @@ package gamefunction;
 import gamefunction.enums.CardType;
 import gamefunction.enums.MoveType;
 import gamefunction.gameboard.GameBoardDefault;
-import gamefunction.squares.BuyAbleSquare;
+import gamefunction.squares.BuyableSquare;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +64,7 @@ public class GameHandler {
         return square.isAvailable();
     }
 
-    public boolean checkOwnerShip(Player player, BuyAbleSquare square) {
+    public boolean checkOwnerShip(Player player, BuyableSquare square) {
         if(square.getOwner() == player){
         return true;
         }
@@ -73,18 +73,25 @@ public class GameHandler {
         }
     }
 
-    public void checkBuyAble(Player player, BuyAbleSquare square) {
-
+    public boolean checkBuyAble(Player player, BuyableSquare square) {
+        if (square.isAvailable()){
+            if (square.getOwner() == null){
+                return true;
+            }
+            else {
+                if (player.getMoney() > square.getValue() *2){
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+        }
+        else {
+            return false;
+        }
     }
 
-
-    public void buySquare(){
-
-    }
-
-    public void sellSquare(){
-
-    }
 
 
 

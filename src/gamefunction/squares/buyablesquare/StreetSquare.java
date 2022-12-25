@@ -1,15 +1,13 @@
 package gamefunction.squares.buyablesquare;
 
 import gamefunction.GameHandler;
-import gamefunction.enums.ColorGroup;
-import gamefunction.squares.BuyAbleSquare;
+import gamefunction.squares.BuyableSquare;
 
-public class StreetSquare extends BuyAbleSquare {
+public class StreetSquare extends BuyableSquare {
 
 
     private int housePrice;
     private int houseCount;
-    private int value;
     private boolean colorGroupActive;
 
     //CONSTRUCTOR
@@ -32,7 +30,7 @@ public class StreetSquare extends BuyAbleSquare {
         }
         else {
             if (gameHandler.checkOwnerShip(gameHandler.getCurrentPlayer(), this)) {
-                System.out.println("This is your land");;
+                System.out.println("This is your land");
             }
             else {
                 System.out.println("This is not your land");
@@ -75,19 +73,35 @@ public class StreetSquare extends BuyAbleSquare {
         this.houseCount = houseCount;
     }
 
-    public int getValue() {
-        return value;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
-    }
-
     public boolean isColorGroupActive() {
         return colorGroupActive;
     }
 
     public void setColorGroupActive(boolean colorGroupActive) {
         this.colorGroupActive = colorGroupActive;
+    }
+
+    @Override
+    public void buy(GameHandler gameHandler) {
+    if (getOwner() == null){
+        gameHandler.changeMoney(gameHandler.getCurrentPlayer(), -getPrice());
+    }
+    else {
+        gameHandler.changeMoney(this.getOwner(), getValue()*2);
+        gameHandler.changeMoney(gameHandler.getCurrentPlayer(), -getValue()*2);
+    }
+        setOwner(gameHandler.getCurrentPlayer());
+        updateValue();
+    }
+
+    public void buyHouse(int houseCount){
+        this.setHouseCount(getHouseCount() + houseCount);
+        updateValue();
+    }
+
+    @Override
+    public void sell(GameHandler gameHandler) {
+        gameHandler.changeMoney(getOwner(), getValue() / 2);
+        setOwner(null);
     }
 }

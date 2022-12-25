@@ -1,12 +1,9 @@
 package gamefunction.squares.buyablesquare;
 
 import gamefunction.GameHandler;
-import gamefunction.Player;
-import gamefunction.Square;
-import gamefunction.enums.ColorGroup;
-import gamefunction.squares.BuyAbleSquare;
+import gamefunction.squares.BuyableSquare;
 
-public class RailRoadSquare extends BuyAbleSquare {
+public class RailRoadSquare extends BuyableSquare {
 
     //INSTANCE VARIABLES
 
@@ -25,6 +22,8 @@ public class RailRoadSquare extends BuyAbleSquare {
     public void action(GameHandler gameHandler) {
         if (gameHandler.checkAvailable(this)){
             System.out.println("This square is available");
+
+
         }
         else {
             if (gameHandler.checkOwnerShip(gameHandler.getCurrentPlayer(), this)) {
@@ -34,11 +33,27 @@ public class RailRoadSquare extends BuyAbleSquare {
                 System.out.println("This is not your land");
             }
         }
-
     }
+
+
 
     public void updateRentPrice(){
         setRent(getBaseRent() * getOwner().getRailRoadCount());
+    }
+
+    @Override
+    public void buy(GameHandler gameHandler) {
+        gameHandler.getCurrentPlayer().addMoney(- getPrice());
+        setOwner(gameHandler.getCurrentPlayer());
+        gameHandler.getCurrentPlayer().setRailRoadCount(gameHandler.getCurrentPlayer().getRailRoadCount() + 1);
+    }
+
+    @Override
+    public void sell(GameHandler gameHandler) {
+        getOwner().setRailRoadCount(getOwner().getRailRoadCount() - 1);
+        gameHandler.changeMoney(getOwner(), getPrice() / 2);
+        setOwner(null);
+        setAvailable(true);
     }
 
     //SETTER AND GETTERS

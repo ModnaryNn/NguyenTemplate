@@ -1,12 +1,9 @@
 package gamefunction.squares.buyablesquare;
 
 import gamefunction.GameHandler;
-import gamefunction.Player;
-import gamefunction.Square;
-import gamefunction.enums.ColorGroup;
-import gamefunction.squares.BuyAbleSquare;
+import gamefunction.squares.BuyableSquare;
 
-public class UtilitySquare extends BuyAbleSquare {
+public class UtilitySquare extends BuyableSquare {
 
     //INSTANCE VARIABLES
 
@@ -46,7 +43,20 @@ public class UtilitySquare extends BuyAbleSquare {
         }
     }
 
+    @Override
+    public void buy(GameHandler gameHandler) {
+        gameHandler.getCurrentPlayer().addMoney(- getPrice());
+        setOwner(gameHandler.getCurrentPlayer());
+        gameHandler.getCurrentPlayer().setUtilityCount(gameHandler.getCurrentPlayer().getUtilityCount() + 1);
+    }
 
+    @Override
+    public void sell(GameHandler gameHandler) {
+        getOwner().setUtilityCount(getOwner().getUtilityCount() - 1);
+        gameHandler.changeMoney(getOwner(), getPrice() / 2);
+        setOwner(null);
+        setAvailable(true);
+    }
 
     //SETTER AND GETTERS
 }
