@@ -67,7 +67,6 @@ public class GamePanel extends JPanel {
 		currentScene.draw(g);
 }
 
-
 }
 
 

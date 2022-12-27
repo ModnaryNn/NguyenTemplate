@@ -1,6 +1,7 @@
 package gamefunction;
 
 import gamefunction.enums.CardType;
+import main.GameHandler;
 
 public abstract class Card {
     private CardType cardType;

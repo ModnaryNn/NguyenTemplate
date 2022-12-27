@@ -1,6 +1,6 @@
 package gamefunction.squares.buyablesquare;
 
-import gamefunction.GameHandler;
+import main.GameHandler;
 import gamefunction.squares.BuyableSquare;
 
 public class StreetSquare extends BuyableSquare {

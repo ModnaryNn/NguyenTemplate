@@ -19,7 +19,7 @@ public class MenuScene extends Scene {
 
     public KL keyListener;
     public ML mouseListener;
-    public BufferedImage title, play, playPressed, exit, exitPressed;
+    public BufferedImage background, play, playPressed, exit, exitPressed;
     public Rect playRect, exitRect, titleRect;
     public BufferedImage playCurrentImage, exitCurrentImage;
 
@@ -28,12 +28,12 @@ public class MenuScene extends Scene {
         this.mouseListener = mouseListener;
 
         try {
-            BufferedImage spriteSheet = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/assets/menuSprite.png")));
-            title = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/assets/monopoly_logo.png")));
-            play = spriteSheet.getSubimage(0,121,261,121);
-            playPressed = spriteSheet.getSubimage(264,121,261,121);
-            exit = spriteSheet.getSubimage(0,0,233,93);
-            exitPressed = spriteSheet.getSubimage(264,0,233,93);
+            BufferedImage spriteSheet = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/assets/menuButton.png")));
+            background = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/assets/menuBackground.png")));
+            play = spriteSheet.getSubimage(105 ,295,770,220);
+            playPressed = spriteSheet.getSubimage(105,560,770,220);
+            exit = spriteSheet.getSubimage(1005,295,770,220);
+            exitPressed = spriteSheet.getSubimage(1005,560,770,220);
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -41,9 +41,8 @@ public class MenuScene extends Scene {
         playCurrentImage = playPressed;
         exitCurrentImage = exit;
 
-        titleRect = new gui.shape.Rect(Constant.SCREEN_WIDTH / 2 -200,Constant.SCREEN_HEIGHT/12,400,300);
-        playRect = new gui.shape.Rect(Constant.SCREEN_WIDTH / 2 -150,Constant.SCREEN_HEIGHT/2 - 100,150,70);
-        exitRect = new gui.shape.Rect(Constant.SCREEN_WIDTH / 2 -150,Constant.SCREEN_HEIGHT/2,130,55);
+        playRect = new gui.shape.Rect(Constant.SCREEN_WIDTH / 2 -150,Constant.SCREEN_HEIGHT/2 - 100,300,100);
+        exitRect = new gui.shape.Rect(Constant.SCREEN_WIDTH / 2 -150,Constant.SCREEN_HEIGHT/2,300,100);
     }
     @Override
     public void update(double dt) {
@@ -70,9 +69,8 @@ public class MenuScene extends Scene {
 
     @Override
     public void draw(Graphics g) {
-        g.setColor(Color.GREEN);
-        g.fillRect(0, 0, Constant.SCREEN_WIDTH, Constant.SCREEN_HEIGHT);
-        g.drawImage(title,(int)titleRect.x,(int)titleRect.y,(int)titleRect.width,(int)titleRect.height,null); //logo
+
+        g.drawImage(background,0, 0, Constant.SCREEN_WIDTH, Constant.SCREEN_HEIGHT, null);
         g.drawImage(playCurrentImage,(int)playRect.x,(int)playRect.y,(int)playRect.width,(int)playRect.height,null);
         g.drawImage(exitCurrentImage,(int)exitRect.x,(int)exitRect.y,(int)exitRect.width,(int)exitRect.height,null);
     }

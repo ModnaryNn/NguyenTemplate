@@ -5,7 +5,7 @@ import gamefunction.enums.ColorGroup;
 
 import java.util.*;
 
-public class GameBoard {
+public abstract class GameBoard {
 
     private final List<Square> squares = new ArrayList<>();
     private final List<Card> chanceCards = new ArrayList<>();

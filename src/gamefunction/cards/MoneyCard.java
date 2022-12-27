@@ -1,7 +1,7 @@
 package gamefunction.cards;
 
 import gamefunction.Card;
-import gamefunction.GameHandler;
+import main.GameHandler;
 import gamefunction.enums.CardType;
 
 public class MoneyCard extends Card {

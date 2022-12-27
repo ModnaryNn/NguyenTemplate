@@ -1,7 +1,6 @@
 package gamefunction.squares.unbuyablesquare;
 
-import gamefunction.GameHandler;
-import gamefunction.Square;
+import main.GameHandler;
 import gamefunction.squares.UnbuyableSquare;
 
 public class TaxSquare extends UnbuyableSquare {

@@ -1,5 +1,7 @@
 package gamefunction;
 
+import main.GameHandler;
+
 public abstract class Square {
     private String name;
     private boolean available;

@@ -1,6 +1,6 @@
 package gamefunction.squares;
 
-import gamefunction.GameHandler;
+import main.GameHandler;
 import gamefunction.Player;
 import gamefunction.Square;
 import gamefunction.enums.ColorGroup;

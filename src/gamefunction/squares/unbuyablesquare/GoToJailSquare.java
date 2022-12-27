@@ -1,7 +1,6 @@
 package gamefunction.squares.unbuyablesquare;
 
-import gamefunction.GameHandler;
-import gamefunction.Square;
+import main.GameHandler;
 import gamefunction.enums.MoveType;
 import gamefunction.squares.UnbuyableSquare;
 

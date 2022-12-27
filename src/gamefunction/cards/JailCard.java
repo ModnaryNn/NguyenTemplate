@@ -1,8 +1,7 @@
 package gamefunction.cards;
 
 import gamefunction.Card;
-import gamefunction.GameHandler;
-import gamefunction.Player;
+import main.GameHandler;
 import gamefunction.enums.CardType;
 import gamefunction.enums.MoveType;
 
