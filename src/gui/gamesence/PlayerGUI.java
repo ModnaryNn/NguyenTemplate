@@ -56,7 +56,7 @@ public class PlayerGUI {
     }
 
     public int getPlayerPositionX(Player player){
-        return  GameHandler.getGameHandler().getGameBoard().getSquare(player.getPosition()).getX();
+        return  GameHandler.getGameHandler().getGameBoard().getSquare(player.getPosition()).getX()+20;
     }
 
     public int getPlayerPositionY(Player player){
