@@ -1,7 +1,9 @@
 package gui.gamesence;
 
 
-import gamefunction.Board;
+import controller.KL;
+import controller.ML;
+import gamefunction.Player;
 import gui.Scene;
 import main.GameHandler;
 import main.GamePanel;
@@ -11,8 +13,12 @@ import java.awt.*;
 
 public class GameScene extends Scene {
 
-    public Board board = new Board();
-    public GameHandler gameHandler = new GameHandler();
+    private GameHandler gameHandler = GameHandler.getGameHandler();
+    public KL keyListener;
+    public ML mouseListener;
+    private BoardGUI boardGUI;
+    private PlayerGUI playerGUI;
+    private ButtonGUI buttonGUI;
 
     private static int inputNumberOfPlayers(GameHandler gameHandler) {
         int numPlayers = 0;
@@ -55,18 +61,25 @@ public class GameScene extends Scene {
 
 
 
-    public GameScene(){
-        int numPlayers = inputNumberOfPlayers(gameHandler);
+    public GameScene(KL keyListener, ML mouseListener){
+        this.keyListener = keyListener;
+        this.mouseListener = mouseListener;
+        this.boardGUI  = new BoardGUI();
+        this.playerGUI = new PlayerGUI();
+        this.buttonGUI = new ButtonGUI(keyListener, mouseListener);
+        inputNumberOfPlayers(gameHandler);
     }
 
 
     @Override
     public void update(double dt) {
+        buttonGUI.update(dt);
     }
 
     @Override
     public void draw(Graphics g) {
-        board.draw(g);
-        //player.draw(g);
+        boardGUI.draw(g);
+        playerGUI.draw(g);
+        buttonGUI.draw(g);
     }
 }

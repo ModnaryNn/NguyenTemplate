@@ -42,7 +42,7 @@ public class MenuScene extends Scene {
         exitCurrentImage = exit;
 
         playRect = new gui.shape.Rect(Constant.SCREEN_WIDTH / 2 -150,Constant.SCREEN_HEIGHT/2 - 100,300,100);
-        exitRect = new gui.shape.Rect(Constant.SCREEN_WIDTH / 2 -150,Constant.SCREEN_HEIGHT/2,300,100);
+        exitRect = new gui.shape.Rect(Constant.SCREEN_WIDTH / 2 -150,Constant.SCREEN_HEIGHT/2+ 50,300,100);
     }
     @Override
     public void update(double dt) {
@@ -69,7 +69,6 @@ public class MenuScene extends Scene {
 
     @Override
     public void draw(Graphics g) {
-
         g.drawImage(background,0, 0, Constant.SCREEN_WIDTH, Constant.SCREEN_HEIGHT, null);
         g.drawImage(playCurrentImage,(int)playRect.x,(int)playRect.y,(int)playRect.width,(int)playRect.height,null);
         g.drawImage(exitCurrentImage,(int)exitRect.x,(int)exitRect.y,(int)exitRect.width,(int)exitRect.height,null);

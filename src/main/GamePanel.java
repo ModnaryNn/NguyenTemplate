@@ -11,21 +11,21 @@ import java.awt.*;
 
 public class GamePanel extends JPanel {
 
-	public static GamePanel gamePanel = null;
-	public boolean isRunning;
-	public int currentState;
-	public Scene currentScene;
-	public KL keyListener = new KL();
-	public ML mouseListener = new ML();
+	private static GamePanel gamePanel = null;
+	private boolean running;
+	private int currentState;
+	private Scene currentScene;
+	private KL keyListener = new KL();
+	private ML mouseListener = new ML();
 
-	public GamePanel() {
+	private GamePanel() {
 		this.setPreferredSize(new Dimension(Constant.SCREEN_WIDTH, Constant.SCREEN_HEIGHT));
 		this.setFocusable(true);
 		this.setDoubleBuffered(true);
 		addKeyListener(keyListener);
 		addMouseListener(mouseListener);
 		addMouseMotionListener(mouseListener);
-		isRunning = true;
+		setRunning(true);
 		changeState(0);
 	}
 
@@ -44,7 +44,7 @@ public class GamePanel extends JPanel {
 				currentScene = new MenuScene(keyListener,mouseListener);
 				break;
 			case 1:
-				currentScene = new GameScene();
+				currentScene = new GameScene(keyListener,mouseListener);
 				break;
 			default:
 				System.out.println("Error: Invalid state");
@@ -54,7 +54,7 @@ public class GamePanel extends JPanel {
 	}
 
 	public void close() {
-		isRunning = false;
+		setRunning(false);
 	}
 
 	public void update(double dt){
@@ -66,6 +66,16 @@ public class GamePanel extends JPanel {
 		super.paintComponent(g);
 		currentScene.draw(g);
 }
+
+	//GETTERS AND SETTERS
+
+	public boolean isRunning() {
+		return running;
+	}
+
+	public void setRunning(boolean running) {
+		this.running = running;
+	}
 
 }
 

@@ -5,10 +5,9 @@ import java.awt.*;
 
 public class GameWindow {
 	private JFrame jframe;
-	public static GameWindow gameWindow = null;
+	private static GameWindow gameWindow = null;
 
-	public GameWindow() {
-
+	private GameWindow() {
 		jframe = new JFrame();
 		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jframe.setResizable(false);

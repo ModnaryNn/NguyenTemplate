@@ -56,4 +56,9 @@ public abstract class Square {
     public void setY(int y) {
         this.y = y;
     }
+
+    public void setPosition(int x, int y) {
+        setX(x);
+        setY(y);
+    }
 }

@@ -3,13 +3,13 @@ package gamefunction.enums;
 public enum ColorGroup {
     RAILROAD,
     UTILITY,
-    PURPLE,
+    BROWN,
     TEAL,
     FUCHSIA,
-    MAROON,
-    RED,
     ORANGE,
+    RED,
+    YELLOW,
     GREEN,
     BLUE,
-    YELLOW
+
 }

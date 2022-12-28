@@ -14,22 +14,33 @@ import java.util.List;
 
 public class GameHandler {
 
-    public Dice dice;
-    public int turnCount;
-    public int playerTurn = 0;
-    public List<Player> players = new ArrayList<>();
+    private static GameHandler gameHandler = null;
+    private Dice dice;
+    private int turnCount;
+    private int numberOfPlayers;
+    private int playerTurn = 0;
+    private List<Player> players = new ArrayList<>();
     private GameBoard gameBoard;
 
     //CONSTRUCTOR
-    public GameHandler() {
+    private GameHandler() {
         dice = new Dice(2);
         playerTurn = 0;
         gameBoard = new GameBoardDefault();
     }
 
+    public static GameHandler getGameHandler() {
+        if (GameHandler.gameHandler == null) {
+            GameHandler.gameHandler = new GameHandler();
+        }
+        return GameHandler.gameHandler;
+    }
+
     //METHODS
     public void setNumberOfPlayers(int number) {
         players.clear();
+        this.numberOfPlayers = number;
+        System.out.println("Number of players: " + numberOfPlayers);
         for (int i = 0; i < number; i++) {
             Player player = new Player("Player " + (i + 1));
             players.add(player);
@@ -52,6 +63,10 @@ public class GameHandler {
 
     public Player getPlayer(int index){
         return players.get(index);
+    }
+
+    public List<Player> getPlayers() {
+        return players;
     }
 
     public void movePlayer(Player player, MoveType moveType, int amount) {
@@ -122,4 +137,45 @@ public class GameHandler {
 
 
 
+    //GETTERS AND SETTERS
+
+    public Dice getDice() {
+        return dice;
+    }
+
+    public void setDice(Dice dice) {
+        this.dice = dice;
+    }
+
+    public int getTurnCount() {
+        return turnCount;
+    }
+
+    public void setTurnCount(int turnCount) {
+        this.turnCount = turnCount;
+    }
+
+    public int getNumberOfPlayers() {
+        return players.size();
+    }
+
+    public int getPlayerTurn() {
+        return playerTurn;
+    }
+
+    public void setPlayerTurn(int playerTurn) {
+        this.playerTurn = playerTurn;
+    }
+
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
+
+    public GameBoard getGameBoard() {
+        return gameBoard;
+    }
+
+    public void setGameBoard(GameBoard gameBoard) {
+        this.gameBoard = gameBoard;
+    }
 }
