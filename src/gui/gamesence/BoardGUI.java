@@ -10,10 +10,11 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class BoardGUI    {
-    BufferedImage boardIMG;
+    BufferedImage boardIMG,backgroundIMG;
     public BoardGUI() {
         try {
             this.boardIMG = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/assets/monopoly-board.jpg")));
+            this.backgroundIMG = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/assets/gameSenceBackground.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -21,6 +22,7 @@ public class BoardGUI    {
 
 
     public void draw(Graphics g) {
-        g.drawImage(boardIMG, 0, 0, Constant.SCREEN_HEIGHT, Constant.SCREEN_HEIGHT, null);
+        g.drawImage(backgroundIMG,0,0, Constant.SCREEN_WIDTH, Constant.SCREEN_HEIGHT,null);
+        g.drawImage(boardIMG, 20, 0, Constant.SCREEN_HEIGHT, Constant.SCREEN_HEIGHT, null);
     }
 }

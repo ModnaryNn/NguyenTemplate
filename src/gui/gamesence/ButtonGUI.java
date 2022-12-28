@@ -21,14 +21,14 @@ public class ButtonGUI {
         this.mouseListener = mouseListener;
 
         try {
-            BufferedImage spriteSheet = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/assets/pawns/boot.png")));
+            BufferedImage spriteSheet = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/assets/gameButton.png")));
             roll = spriteSheet.getSubimage(35 ,305,585,190);
             rollPressed = spriteSheet.getSubimage(35,587,585,190);
 
             buy = spriteSheet.getSubimage(670,305,585,190);
-            buyPressed = spriteSheet.getSubimage(35,587,585,190);
+            buyPressed = spriteSheet.getSubimage(670,587,585,190);
 
-            end = spriteSheet.getSubimage(1302,305,305,190);
+            end = spriteSheet.getSubimage(1302,305,585,190);
             endPressed = spriteSheet.getSubimage(1302,587,585,190);
 
         } catch (Exception e){
@@ -40,8 +40,8 @@ public class ButtonGUI {
         endCurrentImage = end;
 
         rollRect = new gui.shape.Rect(750,600,150,50);
-        buyRect = new gui.shape.Rect(950,600,150,50);
-        endRect = new gui.shape.Rect(1150,600,150,50);
+        buyRect = new gui.shape.Rect(925,600,150,50);
+        endRect = new gui.shape.Rect(1100,600,150,50);
     }
 
     public void update(double dt) {
@@ -77,7 +77,7 @@ public class ButtonGUI {
     }
 
     public void draw(Graphics g) {
-        g.drawImage(rollCurrentImage,(int)buyRect.x,(int)buyRect.y,(int)buyRect.width,(int)buyRect.height,null);
+        g.drawImage(rollCurrentImage,(int)rollRect.x,(int)rollRect.y,(int)rollRect.width,(int)rollRect.height,null);
         g.drawImage(buyCurrentImage,(int)buyRect.x,(int)buyRect.y,(int)buyRect.width,(int)buyRect.height,null);
         g.drawImage(endCurrentImage,(int)endRect.x,(int)endRect.y,(int)endRect.width,(int)endRect.height,null);
     }
